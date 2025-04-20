@@ -67,13 +67,17 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Lombok (Reduces boilerplate code like getters, setters, constructors) -->
+
+
+
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.36</version>
+			<version>1.18.38</version>
 			<scope>provided</scope>
 		</dependency>
+
 
 
 		<!-- Lombok Annotation Processor -->
@@ -83,6 +87,14 @@
 			<version>0.2.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-maven-plugin</artifactId>
+			<version>1.18.20.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>com.example</groupId>
@@ -90,6 +102,12 @@
 			<version>1.0.0</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.4.4</version>
+		</dependency>
 
 
 
@@ -111,6 +129,8 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+
 
 			<dependency>
 				<groupId>io.grpc</groupId>
