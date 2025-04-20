@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>bank-management-gRPC</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bank-management-gRPC</name>
+	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>user_service</module>
+		<module>account_service</module>
+		<module>bank_service</module>
+		<module>eureka_server</module>
+		<module>shared-proto</module>
+	</modules>
+
+</project>
