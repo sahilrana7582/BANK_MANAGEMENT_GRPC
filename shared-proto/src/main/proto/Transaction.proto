@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.bank.proto.transaction";
+option java_outer_classname = "TransactionProto";
+
+package transaction;
+
+message TransactionRequest {
+  string account_id = 1;
+  double amount = 2;
+  string transaction_type = 3;
+}
+
+message TransactionResponse {
+  string account_id = 1;
+  double balance = 2;
+}
+
+service TransactionService {
+  rpc GetTransaction(TransactionRequest) returns (TransactionResponse);
+}
