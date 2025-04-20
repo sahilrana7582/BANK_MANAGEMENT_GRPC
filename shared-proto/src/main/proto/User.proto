@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.bank.proto.user";
+option java_outer_classname = "UserProto";
+
+package User;
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+  string address = 5;
+  string phoneNumber = 6;
+}
+
+message UserRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string address = 4;
+  string phoneNumber = 5;
+}
+
+message UserResponse {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string address = 4;
+  string phoneNumber = 5;
+}
+
+message GetUserRequest {
+  string name = 1;
+}
+
+service UserService {
+  rpc CreateUser (UserRequest) returns (UserResponse);
+  rpc GetUser (UserRequest) returns (User);
+  rpc UpdateUser (UserRequest) returns (UserResponse);
+  rpc DeleteUser (UserRequest) returns (UserResponse);
+}

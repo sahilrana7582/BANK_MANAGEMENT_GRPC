@@ -39,9 +39,26 @@
 
 		<dependency>
 			<groupId>io.grpc</groupId>
-			<artifactId>grpc-core</artifactId>
-			<version>1.54.2</version> <!-- Ensure grpc-core version matches your common-proto -->
+			<artifactId>grpc-netty-shaded</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-stub</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-protobuf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-core</artifactId>
+		</dependency>
+
+
 
 		<!-- PostgreSQL Database Driver -->
 		<dependency>
@@ -67,6 +84,14 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>shared-proto</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+
+
 
 
 		<!-- Spring Boot Test Dependency for unit testing -->
@@ -86,6 +111,15 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-bom</artifactId>
+				<version>1.62.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
