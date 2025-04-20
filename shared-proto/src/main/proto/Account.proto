@@ -8,6 +8,7 @@ package account;
 
 service AccountService {
   rpc GetAccount(GetAccountRequest) returns (AccountResponse);
+  rpc CreateAccount(AccountCreateRequest) returns (AccountCreateResponse);
 }
 
 message GetAccountRequest {
@@ -18,4 +19,18 @@ message AccountResponse {
   string account_id = 1;
   string account_type = 2;
   double balance = 3;
+}
+
+message AccountCreateRequest {
+  int64 user_id = 3;
+  string account_type = 1;
+  double balance = 2;
+  string accountHolderName = 4;
+}
+
+message AccountCreateResponse {
+  int64 account_id = 1;
+  string account_type = 2;
+  double balance = 3;
+  string accountHolderName = 4;
 }
