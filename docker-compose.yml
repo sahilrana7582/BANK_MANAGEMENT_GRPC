@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  eureka_server:
+    build: ./eureka_server
+    ports:
+      - "8761:8761"
+    container_name: eureka-server
+
+  user_service:
+    build: ./user_service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka_server
+    environment:
+      - EUREKA_SERVER_HOST=eureka_server
+
+
+  account_service:
+    build: ./account_service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka_server
+    environment:
+      - EUREKA_SERVER_HOST=eureka_server

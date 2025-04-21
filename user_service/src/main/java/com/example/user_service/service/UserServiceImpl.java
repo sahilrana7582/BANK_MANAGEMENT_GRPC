@@ -5,6 +5,7 @@ import com.example.user_service.dto.UserRequestDTO;
 import com.example.user_service.dto.UserResponseDTO;
 import com.example.user_service.entity.UserEntity;
 import com.example.user_service.exception.ResourceNotFoundException;
+import com.example.user_service.grpc.AccountGrpcClient;
 import com.example.user_service.mapper.UserMapper;
 import com.example.user_service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +20,21 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final AccountGrpcClient accountGrpcClient;
 
     @Override
     public UserResponseDTO createUser(UserRequestDTO userDTO) {
         UserEntity user = UserMapper.toEntity(userDTO);
-        return UserMapper.toDTO(userRepository.save(user));
+        UserEntity savedUser = userRepository.save(user);
+        if(savedUser == null) {
+            throw new ResourceNotFoundException("User not found", HttpStatus.NOT_FOUND);
+        }
+
+        System.out.println("---------<><><>><><><><><>><><><><><<>><<>><>><><<>><><><<>");
+
+        accountGrpcClient.createAccount();
+
+        return UserMapper.toDTO(savedUser);
     }
 
     @Override

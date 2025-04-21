@@ -14,7 +14,7 @@ public class UserGrpcClient {
 
     public UserGrpcClient() {
         ManagedChannel channel = ManagedChannelBuilder
-                .forAddress("localhost", 9090) // IP of user-service
+                .forAddress("user_service", 9090) // IP of user-service
                 .usePlaintext()
                 .build();
 
